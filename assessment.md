@@ -73,7 +73,7 @@ services:
     restart: always
 
   prometheus:
-    image: prom/prometheus
+    images/image: prom/prometheus
     container_name: prometheus
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
@@ -82,14 +82,14 @@ services:
     restart: always
 
   node_exporter:
-    image: prom/node-exporter
+    images/image: prom/node-exporter
     container_name: node-exporter
     ports:
       - "9100:9100"
     restart: always
 
   grafana:
-    image: grafana/grafana
+    images/image: grafana/grafana
     container_name: grafana
     ports:
       - "3002:3000"
@@ -106,11 +106,11 @@ grafana - 3002:3000
 
 ## Task 2: Application Deployment 
 ● Deploy a containerized application 
-![alt text](image.png)
+![alt text](images/image.png)
 ● Ensure the application exposes metrics at /metrics 
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 ● Validate metrics accessibility 
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 
 ## Task 3: Prometheus Integration 
 ● Configure Prometheus to scrape: 
@@ -130,18 +130,18 @@ scrape_configs:
       - targets: ['node-exporter:9100']
 ```
 ● Validate all targets are UP 
-![alt text](image-3.png)
+![alt text](images/image-3.png)
 
 ## Task 4: Monitoring Stack Execution 
 ● Deploy all components using Docker Compose 
-![alt text](image.png)
-![alt text](image-4.png)
+![alt text](images/image.png)
+![alt text](images/image-4.png)
 ● Ensure all services are accessible via browser 
-![alt text](image-5.png)
+![alt text](images/image-5.png)
 
 ## Task 5: Grafana Configuration 
 ● Add Prometheus as a data source 
-![alt text](image-6.png)
+![alt text](images/image-6.png)
 ● Validate connectivity 
 
 
@@ -155,7 +155,7 @@ scrape_configs:
 ● Disk Availability:
     node_filesystem_avail_bytes
 ```
-![alt text](image-7.png)
+![alt text](images/image-7.png)
 ### Dashboard 2: Application Monitoring:
 ```
 ● Total number of requests
@@ -165,7 +165,7 @@ scrape_configs:
 ● Requests over time (trend)
     increase(app_requests_total[5m])
 ```
-![alt text](image-8.png)
+![alt text](images/image-8.png)
 
 ## Task 7: Traffic Simulation & Analysis 
 ● Generate traffic to the application 
@@ -173,9 +173,9 @@ scrape_configs:
 
 ● Observe dashboard changes
 #### Infrastructure Monitoring
-![alt text](image-10.png)
+![alt text](images/image-10.png)
 #### Application Monitoring
-![alt text](image-9.png)
+![alt text](images/image-9.png)
 
 ● Identify behavior patterns 
 
@@ -210,8 +210,10 @@ we will add this to our ```app.py``` file.
         return "Error occurred!", 500 #added this intentionally to fail about 30%
 ```
 After adding these custom metric we have to compose down then rebuild
-![alt text](image-11.png)
+![alt text](images/image-11.png)
 ● Create an additional panel for it 
-![alt text](image-12.png)
+![alt text](images/image-12.png)
 ● Apply proper visualization and labeling 
-![alt text](image-13.png)
+![alt text](images/image-13.png)
+● After traffic generation:
+![alt text](images/image-14.png)
