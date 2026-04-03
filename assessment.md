@@ -170,6 +170,7 @@ scrape_configs:
 ## Task 7: Traffic Simulation & Analysis 
 ● Generate traffic to the application 
 ```for i in {1..1000}; do curl http://localhost:5000; done```
+
 ● Observe dashboard changes
 #### Infrastructure Monitoring
 ![alt text](image-10.png)
@@ -206,7 +207,7 @@ we will add this to our ```app.py``` file.
 ```
     if random.random() < 0.3:
         ERROR_COUNT.inc()
-        return "Error occurred!", 500
+        return "Error occurred!", 500 #added this intentionally to fail about 30%
 ```
 After adding these custom metric we have to compose down then rebuild
 ![alt text](image-11.png)
