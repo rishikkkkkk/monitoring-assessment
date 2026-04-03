@@ -8,7 +8,7 @@ REQUEST_COUNT = Counter('app_requests_total', 'Total Requests')
 @app.route('/')
 def home():
     REQUEST_COUNT.inc()
-    return "Hello from monitored app!"
+    return "Assessment:Monitoring app running!"
 
 @app.route('/metrics')
 def metrics():
