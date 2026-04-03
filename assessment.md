@@ -115,7 +115,6 @@ grafana - 3002:3000
 ## Task 3: Prometheus Integration 
 ● Configure Prometheus to scrape: 
     ○ Application metrics 
-
     ○ Infrastructure metrics 
 ```
 global:
@@ -131,3 +130,10 @@ scrape_configs:
       - targets: ['node-exporter:9100']
 ```
 ● Validate all targets are UP 
+![alt text](image-3.png)
+
+## Task 4: Monitoring Stack Execution 
+● Deploy all components using Docker Compose 
+![alt text](image.png)
+![alt text](image-4.png)
+● Ensure all services are accessible via browser 
