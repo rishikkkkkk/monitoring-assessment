@@ -166,3 +166,51 @@ scrape_configs:
     increase(app_requests_total[5m])
 ```
 ![alt text](image-8.png)
+
+## Task 7: Traffic Simulation & Analysis 
+● Generate traffic to the application 
+```for i in {1..1000}; do curl http://localhost:5000; done```
+● Observe dashboard changes
+#### Infrastructure Monitoring
+![alt text](image-10.png)
+#### Application Monitoring
+![alt text](image-9.png)
+
+● Identify behavior patterns 
+
+## Task 8: Observability Analysis (IMPORTANT) 
+Provide a brief explanation (3–5 lines each): 
+1. Difference between infrastructure and application metrics 
+```
+1.  Infrastructure Metrics:
+    Related to system performance
+    Example: CPU, memory, disk
+    Provided by Node Exporter
+2.  Application Metrics:
+    Related to app behavior
+    Example: requests, errors, latency
+    Provided by your app (/metrics)
+```
+2. Why counters require rate/increase functions 
+```
+Counters require rate() or increase() functions because they only show cumulative values and continuously increase. These functions help calculate the rate of change or total increment over time, making it easier to analyze trends and detect spikes in metrics.
+```
+3. How monitoring helps in troubleshooting
+```
+Monitoring helps in troubleshooting by providing real-time and historical data about system and application performance. It helps identify anomalies, locate root causes, and resolve issues quickly. This reduces downtime and improves system reliability.
+```
+## Bonus (Optional) 
+● Add a custom metric (e.g., error count or latency) 
+```ERROR_COUNT = Counter('app_errors_total', 'Total Errors')```
+we will add this to our ```app.py``` file.
+```
+    if random.random() < 0.3:
+        ERROR_COUNT.inc()
+        return "Error occurred!", 500
+```
+After adding these custom metric we have to compose down then rebuild
+![alt text](image-11.png)
+● Create an additional panel for it 
+![alt text](image-12.png)
+● Apply proper visualization and labeling 
+![alt text](image-13.png)
