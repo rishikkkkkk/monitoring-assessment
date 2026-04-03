@@ -147,13 +147,22 @@ scrape_configs:
 
 ## Task 6: Dashboard Design:
 ### Dashboard 1: Infrastructure Monitoring:
-Must include: 
-    ● CPU Usage 
-    ● Memory Usage 
-    ● Disk Usage
-
+```
+● CPU Usage:
+    rate(node_cpu_seconds_total[1m])
+● Memory Usage:
+    node_memory_MemAvailable_bytes
+● Disk Availability:
+    node_filesystem_avail_bytes
+```
+![alt text](image-7.png)
 ### Dashboard 2: Application Monitoring:
-Must include: 
-    ● Total Requests 
-    ● Requests Per Second 
-    ● Traffic Trend (last 1 minute or similar)
+```
+● Total number of requests
+    app_requests_total
+● Requests per second
+    rate(app_requests_total[1m])
+● Requests over time (trend)
+    increase(app_requests_total[5m])
+```
+![alt text](image-8.png)
