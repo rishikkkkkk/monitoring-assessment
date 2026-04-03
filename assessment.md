@@ -137,3 +137,23 @@ scrape_configs:
 ![alt text](image.png)
 ![alt text](image-4.png)
 ● Ensure all services are accessible via browser 
+![alt text](image-5.png)
+
+## Task 5: Grafana Configuration 
+● Add Prometheus as a data source 
+![alt text](image-6.png)
+● Validate connectivity 
+
+
+## Task 6: Dashboard Design:
+### Dashboard 1: Infrastructure Monitoring:
+Must include: 
+    ● CPU Usage 
+    ● Memory Usage 
+    ● Disk Usage
+
+### Dashboard 2: Application Monitoring:
+Must include: 
+    ● Total Requests 
+    ● Requests Per Second 
+    ● Traffic Trend (last 1 minute or similar)
