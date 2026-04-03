@@ -1,9 +1,10 @@
-name: sample-app
+name: assessment-mon-app
+
 
 services:
   app:
     build: ./app
-    container_name: sample-app
+    container_name: assessment-mon-app
     ports:
       - "5000:5000"
     restart: always
