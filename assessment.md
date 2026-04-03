@@ -58,14 +58,6 @@ scrape_configs:
   - job_name: 'node'
     static_configs:
       - targets: ['node-exporter:9100']
-
-  - job_name: 'prometheus'
-    static_configs:
-      - targets: ['prometheus:9090']
-
-  - job_name: 'grafana'
-    static_configs:
-      - targets: ['grafana:3000']
 ```
 #### docker-compose.yml:
 ```
@@ -104,3 +96,38 @@ services:
     restart: always
 ```
 ● Ensure services are properly networked 
+```
+prometheus - 9090:9090
+node_exporter - 9100:9100
+app - 5000:5000
+grafana - 3002:3000
+```
+
+
+## Task 2: Application Deployment 
+● Deploy a containerized application 
+![alt text](image.png)
+● Ensure the application exposes metrics at /metrics 
+![alt text](image-1.png)
+● Validate metrics accessibility 
+![alt text](image-2.png)
+
+## Task 3: Prometheus Integration 
+● Configure Prometheus to scrape: 
+    ○ Application metrics 
+
+    ○ Infrastructure metrics 
+```
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'app'
+    static_configs:
+      - targets: ['app:5000']
+
+  - job_name: 'node'
+    static_configs:
+      - targets: ['node-exporter:9100']
+```
+● Validate all targets are UP 
